@@ -1,2 +1,2 @@
 # testing
-testing push
+testing 1..2..3
