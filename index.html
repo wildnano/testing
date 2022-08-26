@@ -5,8 +5,248 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>wildnano</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Get wild!*..***</h1>
+        <h1>Get wild !</h1>
+        <iframe
+            width="640"
+            height="360"
+            src="https://www.youtube.com/embed/to8VoiepB3I"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        ></iframe>
+        <div class="pids-wrapper">
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+            <div class="pid"></div>
+        </div>
+
+        <span id="decibels" style="position: absolute; width: 100px; height: 100px; background: #fff; border: 1px solid #eee"></span>
+        <span class="marker" style="display: none"></span>
+        <div class="pulsating-circle" style="display: none"></div>
+        <style>
+            .pids-wrapper {
+                width: 100%;
+            }
+            .pid {
+                width: calc(10% - 10px);
+                height: 10px;
+                display: inline-block;
+                margin: 5px;
+            }
+            .marker {
+                display: none;
+                width: 20px;
+                height: 20px;
+                border: 2px solid red;
+                position: relative;
+                border-radius: 50%;
+            }
+
+            .marker:before,
+            .marker:after {
+                display: block;
+                width: 20px;
+                height: 20px;
+                border: 2px solid red;
+                position: relative;
+                border-radius: 50%;
+            }
+            .marker:before,
+            .marker:after {
+                position: absolute;
+                margin-left: -4px;
+                margin-top: -4px;
+                opacity: 0;
+                border: 4px solid red;
+                animation: pulse 3s infinite ease-out;
+            }
+            .marker:before {
+                content: "";
+                animation-delay: 0s;
+            }
+            .marker:after {
+                content: "";
+                animation-delay: 1.5s;
+            }
+
+            @keyframes pulse {
+                from {
+                    transform: scale(1);
+                    opacity: 0.5;
+                }
+                to {
+                    transform: scale(3, 3);
+                    opacity: 0;
+                }
+            }
+
+            .pulsating-circle {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                /* transform: translateX(-50%) translateY(-50%); */
+                width: 100px;
+                height: 100px;
+                background: #eee url("avatar.jpg") center no-repeat;
+                background-size: cover;
+                border-radius: 80px;
+                border: 7px solid #01a4e9;
+            }
+            .pulsating-circle::after {
+                content: "";
+                position: absolute;
+                left: -30%;
+                top: -30%;
+                display: block;
+                width: 160%;
+                height: 160%;
+                box-sizing: border-box;
+                border-radius: 80px;
+                background-color: #01a4e9;
+                animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+                border: 2px solid #60899c;
+                z-index: -1;
+            }
+
+            /* .pulsating-circle::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #eee url("avatar.jpg") center no-repeat;
+    background-size: cover;
+    border-radius: 80px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite; 
+} 
+*/
+
+            @keyframes pulse-ring {
+                0% {
+                    transform: scale(0.2);
+                }
+                50% {
+                    opacity: 0.3;
+                }
+
+                70% {
+                    opacity: 0.5;
+                }
+                100% {
+                    opacity: 0.2;
+                }
+            }
+
+            @keyframes pulse-dot {
+                0% {
+                    transform: scale(0.8);
+                }
+                50% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(0.8);
+                }
+            }
+        </style>
+
+        <script>
+            // https://jsfiddle.net/modoscoding/60s89uh1/27/
+            // https://www.rtcmulticonnection.org/docs/DetectRTC/
+            // https://www.npmjs.com/package/detectrtc
+
+            //detect microphone
+            // if (connection.DetectRTC.hasMicrophone === false) {
+            //     alert("Please attach a microphone device.");
+
+            //     // or ignore microphone
+            //     connection.mediaConstraints.audio = false;
+            //     connection.session.audio = false;
+            // }
+
+            // //detect camera
+            // if (connection.DetectRTC.hasWebcam === false) {
+            //     alert("Please attach a camera device.");
+
+            //     // or ignore camera
+            //     connection.mediaConstraints.video = false;
+            //     connection.session.video = false;
+            // }
+
+            // //detect speakers
+            // if (connection.DetectRTC.hasSpeakers === false) {
+            //     alert(
+            //         "Please attach a speaker device. You will unable to hear the incoming audios."
+            //     );
+            // }
+
+            (async () => {
+                navigator.mediaDevices
+                    .getUserMedia({
+                        audio: true,
+                        video: false
+                    })
+                    .then(function (stream) {
+                        const audioContext = new AudioContext();
+                        const analyser = audioContext.createAnalyser();
+                        const microphone = audioContext.createMediaStreamSource(stream);
+                        const scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+
+                        analyser.smoothingTimeConstant = 0.8;
+                        analyser.fftSize = 1024;
+
+                        microphone.connect(analyser);
+                        analyser.connect(scriptProcessor);
+                        scriptProcessor.connect(audioContext.destination);
+                        scriptProcessor.onaudioprocess = function () {
+                            const array = new Uint8Array(analyser.frequencyBinCount);
+                            analyser.getByteFrequencyData(array);
+                            const arraySum = array.reduce((a, value) => a + value, 0);
+                            const average = arraySum / array.length;
+                            console.log("average = ", Math.round(average));
+                            const decibels = document.getElementById("decibels");
+                            decibels.innerHTML = average;
+                            const marker = document.querySelector(".marker");
+                            const pulsing = document.querySelector(".pulsating-circle");
+                            colorPids(average);
+                            if (average < 3) {
+                                pulsing.setAttribute("style", "display:none");
+                            } else if (average >= 3) {
+                                pulsing.setAttribute("style", "display:block");
+                            }
+                        };
+                    })
+                    .catch(function (err) {
+                        /*handle the error */
+                        console.error(err);
+                    });
+            })();
+            function colorPids(vol) {
+                const allPids = [...document.querySelectorAll(".pid")];
+                const numberOfPidsToColor = Math.round(vol / 10);
+                const pidsToColor = allPids.slice(0, numberOfPidsToColor);
+                for (const pid of allPids) {
+                    pid.style.backgroundColor = "#e6e7e8";
+                }
+                for (const pid of pidsToColor) {
+                    // console.log(pid[i]);
+                    pid.style.backgroundColor = "#3483eb";
+                }
+            }
+        </script>
     </body>
 </html>
