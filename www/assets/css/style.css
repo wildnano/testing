@@ -7,7 +7,11 @@
 }
 
 ::selection {
-    background: rgba(233, 237, 240, 0.5);
+    background: rgba(233, 237, 240, 0.3);
+}
+
+a {
+    text-decoration: none;
 }
 
 /* *********************** ../fonts *********************** */
@@ -67,6 +71,10 @@
 }
 
 /* *********************** Body *********************** */
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -76,8 +84,7 @@ body {
 header {
     height: 100%;
     width: 100%;
-    background: url(../images/vintage02.jpg) no-repeat;
-    background-size: cover;
+    background: #333 url(../images/vintage02.jpg) top / cover no-repeat;
 }
 
 #hook {
@@ -91,6 +98,10 @@ header {
 
 #hook span {
     display: block;
+}
+
+#hook .share span {
+    display: inline-block;
 }
 
 #hook span.develop {
@@ -122,6 +133,7 @@ header {
 #hook .choice .choose {
     font-family: "Lato-Light", sans-serif;
     font-size: 24px;
+    padding-bottom: 19px;
 }
 
 #hook .choice .website {
@@ -131,6 +143,61 @@ header {
     word-spacing: 13px;
 }
 
+#hook .go-to-menu {
+    width: 170px;
+    margin: auto;
+    margin-top: 60px;
+    padding: 12px 0;
+    border: 1px solid #fff;
+    font-family: "Lato-Light", sans-serif;
+    font-size: 24px;
+}
+
+#hook .go-to-menu a {
+    color: #fff;
+}
+
+#hook #triptych {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    padding: 0 100px;
+}
+
+#hook #triptych div {
+    width: 33%;
+    position: relative;
+}
+
+#hook #triptych p {
+    font-family: "Lato-Bold", sans-serif;
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+#hook #triptych div::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 30px;
+    color: #23acec;
+}
+
+#hook #triptych .conception::before {
+    content: "\f0ac";
+}
+
+#hook #triptych .seo::before {
+    content: "\f201";
+}
+#hook #triptych .maintenance::before {
+    content: "\f0ad";
+}
+
+#hook #triptych i {
+    font-size: 30px;
+    color: #23acec;
+}
 h1 {
     font-size: 50px;
     text-transform: uppercase;
