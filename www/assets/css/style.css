@@ -1,0 +1,392 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+::selection {
+    background: rgba(233, 237, 240, 0.3);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* *********************** ../fonts *********************** */
+@font-face {
+    font-family: "alexindr_extremeditregular";
+    src: url("../fonts/alexindr_extremedit_normal-webfont.eot");
+    src: url("../fonts/alexindr_extremedit_normal-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/alexindr_extremedit_normal-webfont.woff2") format("woff2"), url("../fonts/alexindr_extremedit_normal-webfont.woff") format("woff"),
+        url("../fonts/alexindr_extremedit_normal-webfont.ttf") format("truetype"), url("../fonts/alexindr_extremedit_normal-webfont.svg#alexindr_extremeditregular") format("svg");
+}
+@font-face {
+    font-family: "LithosPro-Black";
+    src: url("../fonts/LithosPro-Black.otf") format("opentype");
+}
+@font-face {
+    font-family: "LithosPro-Regular";
+    src: url("../fonts/LithosPro-Regular.otf") format("opentype");
+}
+@font-face {
+    font-family: "Lato-Black";
+    src: url("../fonts/Lato-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-BlackItalic";
+    src: url("../fonts/Lato-BlackItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-Bold";
+    src: url("../fonts/Lato-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-BoldItalic";
+    src: url("../fonts/Lato-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-Hairline";
+    src: url("../fonts/Lato-Hairline.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-HairlineItalic";
+    src: url("../fonts/Lato-HairlineItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-Italic";
+    src: url("../fonts/Lato-Italic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-Light";
+    src: url("../fonts/Lato-Light.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-LightItalic";
+    src: url("../fonts/Lato-LightItalic.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("../fonts/Lato-Regular.ttf") format("truetype");
+}
+
+/* *********************** HTML *********************** */
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+header {
+    height: auto;
+    width: 100%;
+    background: #333 url(../images/computer02.jpg) top / cover no-repeat;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+#hook {
+    /* height: inherit; */
+    width: 80%;
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    padding-top: 125px;
+    /* background: blue; */
+}
+
+#hook span {
+    display: block;
+}
+
+#hook .share span {
+    display: inline-block;
+}
+
+#hook span.develop {
+    font-family: "Lato-BlackItalic", sans-serif;
+    font-size: 45px;
+    margin-bottom: 58px;
+}
+
+#hook span.famous {
+    font-family: "Lato-Regular", sans-serif;
+    font-size: 36px;
+    margin-bottom: 22px;
+}
+
+#hook span.share {
+    font-family: "Lato-Light", sans-serif;
+    font-size: 36px;
+    font-style: italic;
+    margin-bottom: 80px;
+}
+
+#hook .choice {
+    width: 260px;
+    margin: auto;
+    background: rgba(232, 236, 241, 0.25);
+    padding: 7px 0;
+}
+
+#hook .choice .choose {
+    font-family: "Lato-Light", sans-serif;
+    font-size: 24px;
+    padding-bottom: 19px;
+}
+
+#hook .choice .website {
+    font-family: "Lato-Black", sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    word-spacing: 13px;
+}
+
+#hook .go-to-menu {
+    width: 170px;
+    margin: auto;
+    margin-top: 60px;
+    padding: 12px 0;
+    border: 1px solid #fff;
+    font-family: "Lato-Light", sans-serif;
+    font-size: 24px;
+}
+
+#hook .go-to-menu a {
+    color: #fff;
+}
+
+#hook #triptych {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: grid;
+    grid-template-columns: 1fr 150px 1fr 150px 1fr 150px 1fr;*/
+    margin-top: 100px;
+    padding: 0 100px;
+}
+
+.triptych-grid {
+    width: 200px;
+}
+
+.triptych-grid:nth-child(1) {
+    /* grid-area: 1 / 2 / 2 / 3;
+    background: lightblue; */
+}
+.triptych-grid:nth-child(2) {
+    /* grid-area: 1 / 4 / 2 / 5;
+    background: lightsalmon; */
+}
+.triptych-grid:nth-child(3) {
+    /* grid-area: 1 / 6 / 2 / 7;
+    background: lightgreen; */
+}
+
+/* #hook #triptych div {
+    width: 33%;
+    position: relative;
+} */
+
+#hook #triptych p {
+    font-family: "Lato-Bold", sans-serif;
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+#hook #triptych div::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 30px;
+    color: #23acec;
+}
+
+#hook #triptych .conception::before {
+    content: "\f121";
+}
+
+#hook #triptych .tests::before {
+    content: "\f121";
+}
+
+#hook #triptych .seo::before {
+    content: "\f201";
+}
+#hook #triptych .maintenance::before {
+    content: "\f0ad";
+}
+
+#hook #triptych i {
+    font-size: 30px;
+    color: #23acec;
+}
+h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+/* *********************** NAVIGATION *********************** */
+
+nav {
+    width: 100%;
+    height: 84px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* border-bottom: 1px solid #a4a4a4; */
+}
+nav.sticky {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    height: 84px;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
+
+#logo {
+    width: 200px;
+    height: 84px;
+    background: url(../images/wildblue.png) left center no-repeat;
+    float: left;
+}
+
+nav #menu {
+    width: auto;
+    display: flex;
+}
+nav ul {
+    list-style: none;
+}
+nav #menu li {
+    font-family: "Lato-Light", sans-serif;
+    font-weight: normal;
+    font-size: 26px;
+    color: #f8f8f8;
+    float: left;
+    margin-right: 20px;
+    line-height: 84px;
+}
+nav #menu li:nth-child(1) {
+    padding-left: 70px;
+}
+#menu a {
+    display: flex;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    text-shadow: 2px 1px 2px #313131;
+}
+ul li a:hover {
+    color: #b1b9c3;
+    font-family: "Lato-Regular", sans-serif;
+}
+#menu a.active {
+    border-bottom: 7px solid #a5a5ad;
+    font-family: "Lato-Regular", sans-serif;
+}
+#menu a:hover {
+    color: #b1b9c3;
+}
+
+#about {
+    width: 100%;
+    min-height: 100vh;
+    background: #eeeeee;
+}
+
+#about h1 {
+    display: block;
+    margin: auto;
+    font-family: "LithosPro-Regular";
+    font-weight: normal;
+    font-size: 60px;
+    text-transform: uppercase;
+    color: #2e4453;
+    padding-bottom: 80px;
+    word-spacing: 20px;
+}
+
+.cards {
+    width: 100%;
+    height: 400px;
+    /* background: crimson; */
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr 300px 1fr 300px 1fr;
+    /*minmax(300px, 20%)*/
+}
+.cards img {
+    display: block;
+    margin: auto;
+}
+
+.card-grid:nth-child(1) {
+    grid-area: 1 / 2 / 2 / 3;
+    /* background: lightblue; */
+}
+.card-grid:nth-child(2) {
+    grid-area: 1 / 4 / 2 / 5;
+    /* background: lightsalmon; */
+}
+.card-grid:nth-child(3) {
+    grid-area: 1 / 6 / 2 / 7;
+    /* background: lightgreen; */
+}
+
+#portfolio {
+    width: 100%;
+    min-height: 500px;
+    background: #f3f3f3;
+    display: inline-block;
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+#contact {
+    width: 100%;
+    min-height: 500px;
+    background: #333;
+    display: inline-block;
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+.rectangle {
+    width: 200px;
+    height: 300px;
+    background-color: rgba(191, 255, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(191, 0, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    cursor: move;
+}
+
+#div2 {
+    float: left;
+    min-width: 100px;
+    min-height: 35px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+}
