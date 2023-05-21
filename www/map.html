@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <title>Map</title>
+    </head>
+    <body>
+        <div class="rectangle"></div>
+        <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div class="ball" draggable="true" ondragstart="drag(event)"></div>
+        <!-- <img src="assets/images/computer01.jpg" alt="" draggable="true" ondragstart="drag(event)" id="drag2" /> -->
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13236.95341869743!2d2.314848242722444!3d48.82875641556747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1663791110202!5m2!1sfr!2sfr"
+            style="border: 0; width: 100%; height: 100vh"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+        ></iframe>
+
+
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+        <!--<script src="assets/js/locate.js"></script>-->
+    </body>
+</html>
