@@ -80,11 +80,20 @@ body {
     padding: 0;
     height: 100vh;
 }
+.container {
+    width: 90%;
+}
 
+.btn-ruby {
+    background: #f71e1e;
+    color: #fff;
+}
 header {
-    height: auto;
+    height: 100vh;
     width: 100%;
-    background: #333 url(../images/computer02.jpg) top / cover no-repeat;
+    background-color: #fff;
+    background: #333 url(../images/laptop-coffee.jpg) top / cover no-repeat;
+    /* background-blend-mode: difference; */
     padding-bottom: 100px;
     overflow: hidden;
 }
@@ -95,7 +104,7 @@ header {
     text-align: center;
     color: #fff;
     margin: auto;
-    padding-top: 125px;
+    padding-top: 80px;
     /* background: blue; */
 }
 
@@ -165,26 +174,26 @@ header {
     justify-content: center;
     align-items: center;
     /* display: grid;
-    grid-template-columns: 1fr 150px 1fr 150px 1fr 150px 1fr;*/
+    grid-template-columns: 1fr 150px 1fr 150px 1fr 150px 1fr; */
     margin-top: 100px;
     padding: 0 100px;
 }
 
 .triptych-grid {
-    width: 200px;
+    width: 33%;
 }
 
 .triptych-grid:nth-child(1) {
-    /* grid-area: 1 / 2 / 2 / 3;
-    background: lightblue; */
+    /* grid-area: 1 / 2 / 2 / 3; */
+    /* background: lightblue; */
 }
 .triptych-grid:nth-child(2) {
-    /* grid-area: 1 / 4 / 2 / 5;
-    background: lightsalmon; */
+    /* grid-area: 1 / 4 / 2 / 5; */
+    /* background: lightsalmon; */
 }
 .triptych-grid:nth-child(3) {
-    /* grid-area: 1 / 6 / 2 / 7;
-    background: lightgreen; */
+    /* grid-area: 1 / 6 / 2 / 7; */
+    /* background: lightgreen; */
 }
 
 /* #hook #triptych div {
@@ -202,11 +211,13 @@ header {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 30px;
-    color: #23acec;
+
+    color: #f71e1e;
 }
 
 #hook #triptych .conception::before {
     content: "\f121";
+    text-align: center;
 }
 
 #hook #triptych .tests::before {
@@ -255,8 +266,10 @@ nav.sticky {
 #logo {
     width: 200px;
     height: 84px;
-    background: url(../images/wildblue.png) left center no-repeat;
+    background: url(../images/wildlogored.png) left center no-repeat;
+    background-size: contain;
     float: left;
+    margin-left: 100px;
 }
 
 nav #menu {
@@ -300,7 +313,7 @@ ul li a:hover {
 #about {
     width: 100%;
     min-height: 100vh;
-    background: #eeeeee;
+    background: #fff;
 }
 
 #about h1 {
@@ -310,8 +323,9 @@ ul li a:hover {
     font-weight: normal;
     font-size: 60px;
     text-transform: uppercase;
+    text-align: center;
     color: #2e4453;
-    padding-bottom: 80px;
+    padding: 80px 0;
     word-spacing: 20px;
 }
 
@@ -323,7 +337,7 @@ ul li a:hover {
     grid-template-columns: 1fr 300px 1fr 300px 1fr 300px 1fr;
     /*minmax(300px, 20%)*/
 }
-.cards img {
+.card img {
     display: block;
     margin: auto;
 }
@@ -352,8 +366,8 @@ ul li a:hover {
 
 #contact {
     width: 100%;
-    min-height: 500px;
-    background: #333;
+    min-height: 900px;
+    background: #fff;
     display: inline-block;
     padding-top: 120px;
     padding-bottom: 100px;
